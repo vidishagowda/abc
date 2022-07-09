@@ -1,0 +1,143 @@
+import java.util.Scanner;
+
+import java.util.Random;
+
+import java.util.Arrays;
+
+
+public class quicksort {
+
+	static final int MAX=35000;
+
+	static int[] a=new int[MAX];
+
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		Scanner input=new Scanner(System.in);
+
+		System.out.println("******QUICK SORT*****");
+
+		System.out.print("ENTER MAX array size:");
+
+		int n=input.nextInt();
+
+		Random random=new Random();
+
+		//System.out.println("enter the array elements");
+
+		for(int i=0;i<n;i++)
+
+			//a[i]=input.nextInt();
+
+			a[i]=random.nextInt(10000);
+
+		Arrays.sort(a);
+
+		System.out.println("input array:");
+
+		for(int i=0;i<n;i++)
+
+			System.out.print(a[i]+" ");
+
+		long starttime=System.nanoTime();
+
+		QuicksortAlgorithm(0,n-1);
+
+		long stoptime=System.nanoTime();
+
+		long elapsedtime=stoptime-starttime;
+
+		System.out.println("\nSorted array(Quick sort):");
+
+		for(int i=0;i<n;i++)
+
+			System.out.print(a[i]+" ");
+
+		System.out.println("\nTime complexity(ms) for n="+n+"is:"+(double)elapsedtime/1000000);
+
+		input.close();
+
+
+	}
+
+
+
+public static void QuicksortAlgorithm(int p,int r) {
+
+	int i,j,pivot,temp;
+
+	if(p<r) {
+
+		i=p;
+
+		j=r+1;
+
+		 pivot=a[p];
+
+	
+
+	while(true) {
+
+		i++;
+
+		while(a[i]<pivot && i<r) aaa
+
+			i++;
+
+	j--;
+
+			while(a[j]>pivot)
+
+				j--;
+
+			if(i<j) {
+
+				temp=a[i];
+
+				a[i]=a[j];
+
+				a[j]=temp;
+
+				
+
+			}else
+
+				break;
+
+	}
+
+	a[p]=a[j];
+
+	a[j]=pivot;
+
+	QuicksortAlgorithm(p,j-1);
+
+	QuicksortAlgorithm(j+1,r);
+
+	
+
+
+}
+
+}
+
+}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
